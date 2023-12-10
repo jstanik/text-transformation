@@ -1,6 +1,7 @@
 package club.texttransformation;
 
 import club.texttransformation.transform.NoopTransformer;
+import club.texttransformation.transform.ReverseTransformer;
 import club.texttransformation.transform.TextTransformer;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -32,6 +33,7 @@ public class Application extends JFrame {
   Application() {
     super("Text Transformation");
     transformers.setRenderer(new TransformerRenderer());
+    transformers.addItemListener(item -> applyTransformation());
     sourceTextArea.getDocument().addDocumentListener(
         new DocumentListener() {
           @Override
